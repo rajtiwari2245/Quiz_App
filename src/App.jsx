@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import axios from "axios";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom"; // ✅ Routes instead of Switch
+import "./App.css";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+import Home from "./pages/home/Home";
+import Quiz from "./pages/quiz/Quiz";
+import Result from "./pages/result/Result";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [questions, setQuestions] = useState();
+  const [name, setName] = useState();
+  const [score, setScore] = useState(0);
+
+  const fetchQuestions = async (category = "", difficulty = "") => {
+    const { data } = await axios.get(
+      `https://opentdb.com/api.php?amount=10${
+        category && `&category=${category}`
+      }${difficulty && `&difficulty=${difficulty}`}&type=multiple`
+    );
+
+    setQuestions(data.results);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <BrowserRouter>
+      <div className="app" style={{ backgroundImage: 'url("/ques1.png")' }}>
+        <Header />
+
+        <Routes> {/* ✅ Switch replaced with Routes */}
+          <Route
+            path="/"
+            element={
+              <Home
+                name={name}
+                setName={setName}
+                fetchQuestions={fetchQuestions}
+              />
+            }
+          />
+          <Route
+            path="/quiz"
+            element={
+              <Quiz
+                name={name}
+                questions={questions}
+                score={score}
+                setScore={setScore}
+                setQuestions={setQuestions}
+              />
+            }
+          />
+          <Route
+            path="/result"
+            element={<Result name={name} score={score} />}
+          />
+        </Routes>
+
       </div>
-      <h1>Vite  React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
