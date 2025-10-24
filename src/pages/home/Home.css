@@ -1,6 +1,9 @@
 .content {
   display: flex;
   justify-content: space-around;
+  /* fade-in animation for page */
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 
 .settings {
@@ -11,12 +14,21 @@
   align-items: center;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
+
+  /* subtle slide-up effect */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
 }
 
 .banner {
   width: 55%;
   align-self: center;
   padding: 8px;
+
+  /* floating up-down animation */
+  animation: float 3s ease-in-out infinite;
 }
 
 @media (max-width: 800px) {
@@ -41,4 +53,36 @@
   width: 100%;
   flex: 0.8;
   justify-content: space-evenly;
+}
+
+/* 🌟 Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }

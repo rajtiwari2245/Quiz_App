@@ -1,18 +1,69 @@
-.title {
-  text-transform: uppercase;
-  font-size: 8vw;
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
-}
-
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  animation: fadeIn 1s ease-in-out;
+  padding: 1rem 0;
 }
 
+/* Title Styling */
+.title {
+  text-transform: uppercase;
+  font-size: 8vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #007cf0, #00dfd8, #007cf0);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s linear infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.title:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 15px rgba(0, 223, 216, 0.6);
+}
+
+/* Divider line */
 .divider {
   margin: 10px;
-  width: 100%;
-  background-color: grey;
+  width: 70%;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(to right, #007cf0, #00dfd8);
+  box-shadow: 0 0 8px rgba(0, 223, 216, 0.4);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* 🌈 Keyframes */
+@keyframes gradientMove {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 300%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive title size */
+@media (max-width: 768px) {
+  .title {
+    font-size: 10vw;
+  }
 }

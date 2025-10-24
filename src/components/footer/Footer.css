@@ -1,0 +1,53 @@
+.footer {
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: #555;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Heart animation */
+.heart {
+  color: red;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+/* Stylish name link */
+.footer-link {
+  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  text-shadow: 0 0 8px rgba(0, 223, 216, 0.6);
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

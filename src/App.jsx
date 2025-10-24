@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom"; // ✅ Routes instead of Switch
+import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 import "./App.css";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
@@ -28,7 +28,7 @@ function App() {
       <div className="app" style={{ backgroundImage: 'url("/ques1.png")' }}>
         <Header />
 
-        <Routes> {/* ✅ Switch replaced with Routes */}
+        <Routes> 
           <Route
             path="/"
             element={

@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Poppins", sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
 .singleQuestion {
@@ -12,27 +14,47 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  border: 5px solid grey;
-  padding: 20px;
-  margin-top: 10px;
+  border: 2px solid #d0d7de;
+  border-radius: 12px;
+  padding: 25px 20px;
+  margin-top: 15px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.singleQuestion:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
 .options {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  flex: 1;
   align-items: center;
-  justify-content: space-around;
-  margin: 10px;
+  justify-content: space-evenly;
+  margin: 15px 0;
+  gap: 12px;
 }
 
 .singleOption {
   width: 46%;
-  height: 50px;
-  padding: 15px 20px;
-  margin: 10px;
-  box-shadow: 0 0 2px black;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.singleOption:hover {
+  background: linear-gradient(135deg, #e2e8f0, #cfd8dc);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transform: scale(1.03);
 }
 
 @media (max-width: 614px) {
@@ -44,17 +66,47 @@
 .controls {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.controls button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2b6777;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #1f4d58;
+  transform: scale(1.05);
 }
 
 .select {
-  background-color: rgb(7, 207, 0);
+  background: linear-gradient(135deg, #28a745, #218838);
   color: white;
-  box-shadow: 0 0 1px black;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+  border: none;
 }
 
 .wrong {
-  background-color: rgb(233, 0, 0);
+  background: linear-gradient(135deg, #dc3545, #b02a37);
   color: white;
-  box-shadow: 0 0 1px black;
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4);
+  border: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

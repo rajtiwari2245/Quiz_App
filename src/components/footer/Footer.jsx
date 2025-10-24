@@ -1,17 +1,16 @@
+import "./Footer.css";
+
 const Footer = () => {
   return (
-    <div
-      style={{
-        textAlign: "center",
-        marginBottom: 10,
-      }}
-    >
-      Made with ♥ by{" "}
+    <div className="footer">
+      Made with <span className="heart">♥</span> by{" "}
       <a
-        href="https://www.youtube.com/roadsidecoder"
-        style={{ cursor: "pointer" }}
+        href="https://raj-tiwari2003.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="footer-link"
       >
-        Roadside Coder
+        Raj Tiwari
       </a>
     </div>
   );
